@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Link finder</title>
+</head>
+<body>
+<div class="container">
+    <br/>
+    <form align="center" action="/links" method="POST">
+        <h3>Enter the link of the site for which you want to know the number of links:</h3>
+        <input size="60" type="text" name="domain"/>
+        <input  class="btn btn-dark" type="submit" value="Find">
+        <p>(Finding a previously unexplored domain may take some time)</p>
+    </form>
+    <br/>
+
+    <h1 align="center">List of already explored domains: </h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Domain</th>
+            <th scope="col">All Links</th>
+            <th scope="col">Internal links</th>
+            <th scope="col">External links</th>
+        </tr>
+        </thead>
+        <tr>
+            <#list domains as domain>
+                <tr>
+                    <th scope="row"><a href="${domain.name}">${domain.name}</a> </th>
+                    <td>${domain.allLinks}</td>
+                    <td>${domain.internalLinks}</td>
+                    <td>${domain.externalLinks}</td>
+                </tr>
+            </#list>
+</div>
+</body>
+</html>

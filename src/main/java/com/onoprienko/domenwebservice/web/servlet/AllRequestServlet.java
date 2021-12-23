@@ -1,0 +1,57 @@
+package com.onoprienko.domenwebservice.web.servlet;
+
+import com.onoprienko.domenwebservice.entity.Domain;
+import com.onoprienko.domenwebservice.entity.Link;
+import com.onoprienko.domenwebservice.service.DomainService;
+import com.onoprienko.domenwebservice.service.LinkService;
+import com.onoprienko.domenwebservice.web.utils.PageGenerator;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+public class AllRequestServlet extends HttpServlet {
+    private DomainService domainService;
+    private LinkService linkService;
+
+    public AllRequestServlet(DomainService domainService, LinkService linkService) {
+        this.domainService = domainService;
+        this.linkService = linkService;
+    }
+
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        PageGenerator pageGenerator = PageGenerator.instance();
+
+        try {
+            List<Domain> domains = domainService.findAll();
+            HashMap<String, Object> parameters = new HashMap<>();
+            parameters.put("domains", domains);
+            String page = pageGenerator.getPage("domains_list.html", parameters);
+            resp.getWriter().write(page);
+        } catch (Exception e) {
+            resp.getWriter().write(e.getMessage());
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        PageGenerator pageGenerator = PageGenerator.instance();
+        try {
+            String domainName = req.getParameter("domain");
+            List<Link> links = linkService.findAllByDomain(domainName);
+            Domain domain = domainService.getDomain(domainName, links);
+            HashMap<String, Object> parameters = new HashMap<>();
+            parameters.put("links", links);
+            parameters.put("domain", domain);
+            String page = pageGenerator.getPage("links_list.html", parameters);
+            resp.getWriter().write(page);
+        } catch (Exception e) {
+            resp.getWriter().write(e.getMessage());
+        }
+    }
+}
