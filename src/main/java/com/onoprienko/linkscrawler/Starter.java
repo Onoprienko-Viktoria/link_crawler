@@ -1,10 +1,10 @@
-package com.onoprienko.domenwebservice;
+package com.onoprienko.linkscrawler;
 
-import com.onoprienko.domenwebservice.dao.jdbc.JdbcDomainDao;
-import com.onoprienko.domenwebservice.dao.jdbc.JdbcLinkDao;
-import com.onoprienko.domenwebservice.service.DomainService;
-import com.onoprienko.domenwebservice.service.LinkService;
-import com.onoprienko.domenwebservice.web.servlet.AllRequestServlet;
+import com.onoprienko.linkscrawler.dao.jdbc.JdbcDomainDao;
+import com.onoprienko.linkscrawler.dao.jdbc.JdbcLinkDao;
+import com.onoprienko.linkscrawler.service.DomainService;
+import com.onoprienko.linkscrawler.service.LinkService;
+import com.onoprienko.linkscrawler.web.servlet.AllRequestServlet;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;

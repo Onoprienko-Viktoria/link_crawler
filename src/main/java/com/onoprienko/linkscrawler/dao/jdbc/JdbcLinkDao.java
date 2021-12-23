@@ -1,8 +1,8 @@
-package com.onoprienko.domenwebservice.dao.jdbc;
+package com.onoprienko.linkscrawler.dao.jdbc;
 
-import com.onoprienko.domenwebservice.dao.LinkDao;
-import com.onoprienko.domenwebservice.dao.jdbc.mapper.LinkRowMapper;
-import com.onoprienko.domenwebservice.entity.Link;
+import com.onoprienko.linkscrawler.dao.LinkDao;
+import com.onoprienko.linkscrawler.dao.jdbc.mapper.LinkRowMapper;
+import com.onoprienko.linkscrawler.entity.Link;
 
 import java.sql.*;
 import java.util.ArrayList;

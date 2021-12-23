@@ -1,6 +1,6 @@
-package com.onoprienko.domenwebservice.dao;
+package com.onoprienko.linkscrawler.dao;
 
-import com.onoprienko.domenwebservice.entity.Link;
+import com.onoprienko.linkscrawler.entity.Link;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.onoprienko.domenwebservice.entity;
+package com.onoprienko.linkscrawler.entity;
 
 import lombok.Builder;
 import lombok.Getter;

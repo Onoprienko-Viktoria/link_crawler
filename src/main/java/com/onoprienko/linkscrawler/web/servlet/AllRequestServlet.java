@@ -1,10 +1,10 @@
-package com.onoprienko.domenwebservice.web.servlet;
+package com.onoprienko.linkscrawler.web.servlet;
 
-import com.onoprienko.domenwebservice.entity.Domain;
-import com.onoprienko.domenwebservice.entity.Link;
-import com.onoprienko.domenwebservice.service.DomainService;
-import com.onoprienko.domenwebservice.service.LinkService;
-import com.onoprienko.domenwebservice.web.utils.PageGenerator;
+import com.onoprienko.linkscrawler.entity.Domain;
+import com.onoprienko.linkscrawler.entity.Link;
+import com.onoprienko.linkscrawler.service.DomainService;
+import com.onoprienko.linkscrawler.service.LinkService;
+import com.onoprienko.linkscrawler.web.utils.PageGenerator;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

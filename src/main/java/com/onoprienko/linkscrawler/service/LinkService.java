@@ -1,7 +1,7 @@
-package com.onoprienko.domenwebservice.service;
+package com.onoprienko.linkscrawler.service;
 
-import com.onoprienko.domenwebservice.dao.LinkDao;
-import com.onoprienko.domenwebservice.entity.Link;
+import com.onoprienko.linkscrawler.dao.LinkDao;
+import com.onoprienko.linkscrawler.entity.Link;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

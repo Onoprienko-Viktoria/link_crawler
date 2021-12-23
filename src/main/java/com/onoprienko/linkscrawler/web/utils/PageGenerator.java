@@ -1,4 +1,4 @@
-package com.onoprienko.domenwebservice.web.utils;
+package com.onoprienko.linkscrawler.web.utils;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

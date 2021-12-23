@@ -1,6 +1,6 @@
-package com.onoprienko.domenwebservice.dao.jdbc;
+package com.onoprienko.linkscrawler.dao.jdbc;
 
-import com.onoprienko.domenwebservice.entity.Domain;
+import com.onoprienko.linkscrawler.entity.Domain;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

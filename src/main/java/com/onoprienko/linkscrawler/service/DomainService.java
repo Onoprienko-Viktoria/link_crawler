@@ -1,8 +1,8 @@
-package com.onoprienko.domenwebservice.service;
+package com.onoprienko.linkscrawler.service;
 
-import com.onoprienko.domenwebservice.dao.DomainDao;
-import com.onoprienko.domenwebservice.entity.Domain;
-import com.onoprienko.domenwebservice.entity.Link;
+import com.onoprienko.linkscrawler.dao.DomainDao;
+import com.onoprienko.linkscrawler.entity.Domain;
+import com.onoprienko.linkscrawler.entity.Link;
 
 import java.util.List;
 import java.util.logging.Level;

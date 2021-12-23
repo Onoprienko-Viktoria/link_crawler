@@ -1,6 +1,6 @@
-package com.onoprienko.domenwebservice.dao.jdbc.mapper;
+package com.onoprienko.linkscrawler.dao.jdbc.mapper;
 
-import com.onoprienko.domenwebservice.entity.Domain;
+import com.onoprienko.linkscrawler.entity.Domain;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
