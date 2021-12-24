@@ -5,6 +5,7 @@ import com.onoprienko.linkscrawler.entity.Link;
 import com.onoprienko.linkscrawler.service.DomainService;
 import com.onoprienko.linkscrawler.service.LinkService;
 import com.onoprienko.linkscrawler.web.utils.PageGenerator;
+import com.onoprienko.linkscrawler.web.utils.LinksFilter;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +43,8 @@ public class AllRequestServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         PageGenerator pageGenerator = PageGenerator.instance();
         try {
-            String domainName = req.getParameter("domain");
+            String link = req.getParameter("domain");
+            String domainName = LinksFilter.getDomainFromLink(link);
             List<Link> links = linkService.findAllByDomain(domainName);
             Domain domain = domainService.getDomain(domainName, links);
             HashMap<String, Object> parameters = new HashMap<>();
