@@ -65,7 +65,6 @@ public class LinkService {
             Link currentLink = remainingLinks.poll();
             int externalLinks = 0;
             int level = currentLink.getNestingLevel();
-            
             Document document = getPage(currentLink.getUrl());
             Elements linksOnPage = document.select("a[href]");
             for (Element element : linksOnPage) {
@@ -88,9 +87,13 @@ public class LinkService {
     }
 
     private void addLink(List<Link> links) {
-        for (Link link : links) {
-            linkDao.addLink(link);
-            log.log(Level.INFO, "Add link " + link.getUrl() + " to data base");
+        try {
+            for (Link link : links) {
+                linkDao.addLink(link);
+                log.log(Level.INFO, "Add link " + link.getUrl() + " to data base");
+            }
+        } catch (RuntimeException e){
+            log.log(Level.INFO, "Found links were not added. They may already be in the database.");
         }
 
     }
