@@ -52,8 +52,8 @@ public class LinkService {
 
     private void crawler(String domainName) {
         Queue<Link> remainingLinks = new LinkedList<>();
-        List<String> links = new LinkedList<>();
-        Map<String, Link> visitedLinks = new HashMap<>();
+        List<String> visitedLinks = new LinkedList<>();
+        List<Link> links = new LinkedList<>();
         remainingLinks.add(Link.builder()
                 .domainName(domainName)
                 .url(domainName)
@@ -65,16 +65,15 @@ public class LinkService {
             Link currentLink = remainingLinks.poll();
             int externalLinks = 0;
             int level = currentLink.getNestingLevel();
-            visitedLinks.put(currentLink.getUrl(), currentLink);
-
+            
             Document document = getPage(currentLink.getUrl());
             Elements linksOnPage = document.select("a[href]");
             for (Element element : linksOnPage) {
                 String href = element.absUrl("href");
                 if (!href.contains(domainName)) {
                     externalLinks++;
-                } else if (!visitedLinks.containsKey(href) && !links.contains(href)) {
-                    links.add(href);
+                } else if (!visitedLinks.contains(href)) {
+                    visitedLinks.add(href);
                     remainingLinks.offer(Link.builder()
                             .domainName(domainName)
                             .url(href)
@@ -83,13 +82,17 @@ public class LinkService {
                 }
             }
             currentLink.setExternalLinks(externalLinks);
-            addLink(currentLink);
+            links.add(currentLink);
         }
+        addLink(links);
     }
 
-    private void addLink(Link link) {
-        linkDao.addLink(link);
-        log.log(Level.INFO, "Add link " + link.getUrl() + " to data base");
+    private void addLink(List<Link> links) {
+        for (Link link : links) {
+            linkDao.addLink(link);
+            log.log(Level.INFO, "Add link " + link.getUrl() + " to data base");
+        }
+
     }
 
     private Document getPage(String url) {
